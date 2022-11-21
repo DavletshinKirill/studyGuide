@@ -1,0 +1,25 @@
+{% macro card(title, text) -%}
+<div class="card card_distance" style="width: 18rem;">
+  <img src="..." class="card-img-top" >
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text"> {{ text }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{%- endmacro %}
+
+{% extends "base.html" %}
+{% block title %} Index {% endblock title %}
+
+{% block content %}
+    {% include "navbar.html" %}
+            {% if topic_names %}
+                <div class="card_wrapper">
+                    {% for topic_name in topic_names %}
+
+                    {{ card(topic_name.topic_name, topic_name.description)}}
+                    {% endfor%}
+                </div>
+            {% endif %}
+{% endblock content %}

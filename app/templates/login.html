@@ -1,0 +1,8 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+<div class="quick_form">
+    {{ render_form(form) }}
+    {% if registration %}
+    <a href="{{url_for('auth.registration')}}">Registration</a>
+    {% endif %}
+</div>

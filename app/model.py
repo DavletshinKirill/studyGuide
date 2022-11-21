@@ -78,11 +78,14 @@ class Users(db.Model, UserMixin):
         return self
 
 
+
+
 class Languages(db.Model):
     __tablename__ = 'languages'
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     language = db.Column(db.String(70), unique=True)
     topic_names = db.relationship("TopicNames", lazy=True)
+
 
 
 
